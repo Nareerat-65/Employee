@@ -82,6 +82,11 @@ document.querySelector('.save-button').addEventListener('click', function(event)
         reason = `อื่นๆ: ${note}`;
     }
 
+    if (!date || !license || !category || !device || !reason || !driver) {
+        alert('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+        return;
+    }
+
     const repairData = {
         date,
         license,
