@@ -11,20 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <td>${repair.device}</td>
             <td>${repair.reason}</td>
             <td>${repair.driver}</td>
-            <td><button class="status-button">กำลังซ่อม</button></td>
+            <td>กำลังซ่อม</td>
         `;
         repairTableBody.appendChild(row);
-    });
-
-    // Re-apply the event listeners for the status buttons
-    const statusButtons = document.querySelectorAll('.status-button');
-    statusButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            button.textContent = 'พร้อมใช้งาน';
-            button.style.backgroundColor = '#A8E5B1';
-            button.disabled = true;
-
-        });
     });
 });
 
