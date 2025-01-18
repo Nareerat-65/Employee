@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-emergency_report.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="script-emergency_report.js" defer></script>
+    <title>รายงานเคสฉุกเฉิน</title>
+</head>
+
+<body>
+    <div class="title">
+        <h1>รายงานเคสฉุกเฉิน</h1>
+    </div>
+    <form class="box">
+        <div class="row">
+            <label for="contact">ผู้ติดต่อ</label>
+            <input type="text" name="contact" id="contact" required>
+
+            <label for="contact_number">เบอร์โทรติดต่อ</label>
+            <input type="text" name="contact_number" id="contact_number" required>
+        </div>
+
+        <div class="row">
+            <label for="patient_name">ชื่อผู้ป่วย</label>
+            <input type="text" name="patient_name" id="patient_name" required>
+
+            <label for="patient_age">อายุผู้ป่วย</label>
+            <input type="number" name="patient_age" id="patient_age" required>
+        </div>
+
+        <div class="row">
+            <label for="cause">สาเหตุ/อาการป่วย</label>
+            <select name="cause" id="cause" required>
+                <option value="" disabled selected>ระบุ</option>
+                <option value="1">อุบัติเหตุ</option>
+                <option value="2">อาการป่วย</option>
+                <option value="3">อื่นๆ</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label for="start-point">สถานที่ต้นทาง</label>
+            <input type="text" name="start-point" id="start-point" placeholder="กรอกสถานที่ต้นทาง" required>
+        </div>
+        <div class="row">
+            <label for="end-point">สถานที่ปลายทาง</label>
+            <input type="text" name="end-point" id="end-point" placeholder="กรอกสถานที่ปลายทาง" required>
+        </div>
+        </div>
+        <div class="button">
+            <button type="submit" class="submit-button">บันทึก</button>
+            <button type="reset" class="reset-button">รีเซ็ต</button>
+            <button type="button" class="cancel-button">ยกเลิก</button>
+        </div>
+    </form>
+</body>
+
+</html>

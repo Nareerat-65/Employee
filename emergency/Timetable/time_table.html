@@ -14,9 +14,8 @@
     <!-- Navigation bar -->
     <nav>
         <ul class="menu">
-            <li><a href="..\car_report\car_report.html">รายงานสภาพรถ</a></li>
-            <li><a href="..\car_repair\page_ repair.html">แจ้งซ่อม</a></li>
-            <li><a href="">ตารางเวลารถพยาบาล</a></li>
+            <li><a href="time_table.html">ตารางเวลารถพยาบาล</a></li>
+            <li><a href="..\Report_repair\page_ repair.html">แจ้งซ่อม</a></li>
         </ul>
     </nav>
 
@@ -32,7 +31,6 @@
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                locale: 'th',
                 initialView: 'timeGridWeek', // แสดงผลแบบรายสัปดาห์
                 editable: true, // เปิดใช้งานการแก้ไขกิจกรรม
                 selectable: true, // อนุญาตให้เลือกช่วงเวลาในปฏิทิน

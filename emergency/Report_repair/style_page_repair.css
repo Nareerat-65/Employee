@@ -89,3 +89,9 @@ table th {
 .status-button:hover {
     background-color: #f8b6b6;
 }
+.filter-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}

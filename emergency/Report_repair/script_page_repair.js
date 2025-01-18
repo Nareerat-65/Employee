@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <td>${repair.device}</td>
             <td>${repair.reason}</td>
             <td>${repair.driver}</td>
-            <td>กำลังซ่อม</td>
+            <td>${repair.status}</td>
         `;
         repairTableBody.appendChild(row);
     });
