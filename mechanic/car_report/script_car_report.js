@@ -2,15 +2,40 @@ const results = {};
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('carReportForm');
+    const levelField = form.querySelector('#level');
+    const numberField = form.querySelector('#number');
+    
     form.addEventListener('submit', submitForm);
+
+    levelField.addEventListener('change', () => {
+        const level = levelField.value;
+        let numberOptions = '';
+
+        if (level === 'ระดับ 1') {
+            numberOptions = `
+                <option value="กข1234">กข1234</option>
+                <option value="คต5678">คต5678</option>
+            `;
+        } else if (level === 'ระดับ 2') {
+            numberOptions = `
+                <option value="งง9101">งง9101</option>
+                <option value="จช1213">จช1213</option>
+            `;    
+        } else if (level === 'ระดับ 3') {
+            numberOptions = `
+                <option value="ฉน1415">ฉน1415</option>
+                <option value="ชบ1617">ชบ1617</option>
+            `;
+        }
+        numberField.innerHTML = `<option value="" disabled selected>ระบุทะเบียนรถ</option>${numberOptions}`;
+    });
 });
-//ส่งไปหน้า success
+
 function submitForm(event) {
     event.preventDefault(); 
     location.href = 'car_report_success.html'; 
 }
 
-//ปิดหรือปิดการใช้งานของ dropdown และ text field
 function toggleDropdown(name) {
     const radioNo = document.querySelector(`input[name="${name}"][value="no"]`);
     const dropdown = document.getElementById(`${name}-dropdown`);
@@ -27,12 +52,11 @@ function toggleDropdown(name) {
     results[name] = { status: selectedValue, dropdown: dropdown.value, other: otherField.value };
     console.log(results);
 }
-//เปิดหรือปิดการใช้งาน text field หาก dropdown ถูกตั้งค่าเป็น "other"
+
 function updateDropdown(name) {
     const dropdown = document.getElementById(`${name}-dropdown`);
     const otherField = document.getElementById(`${name}-other`);
 
-    
     if (dropdown.value === "other") {
         otherField.disabled = false;
     } else {
@@ -44,9 +68,7 @@ function updateDropdown(name) {
     results[name].other = otherField.value;
     console.log(results);
 }
-//รีเซ็ตฟอร์ม
+
 function resetForm() {
     document.getElementById('carReportForm').reset();
-    
 }
-

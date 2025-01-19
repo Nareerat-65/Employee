@@ -38,8 +38,14 @@ nav {
 form .car-info {
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 50px;
     padding: 10px;
+}
+
+.car-info label {
+    font-weight: bold;
+    margin-right: 20px;
+    color: #333;
 }
 
 form h3 {

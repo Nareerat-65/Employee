@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style-emergency_report.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
     <script src="script-emergency_report.js" defer></script>
     <title>รายงานเคสฉุกเฉิน</title>
 </head>
@@ -28,17 +27,16 @@
             <input type="text" name="patient_name" id="patient_name" required>
 
             <label for="patient_age">อายุผู้ป่วย</label>
-            <input type="number" name="patient_age" id="patient_age" required>
+            <input type="number" name="patient_age" id="patient_age" required min="1">
         </div>
 
         <div class="row">
             <label for="cause">สาเหตุ/อาการป่วย</label>
-            <select name="cause" id="cause" required>
-                <option value="" disabled selected>ระบุ</option>
-                <option value="1">อุบัติเหตุ</option>
-                <option value="2">อาการป่วย</option>
-                <option value="3">อื่นๆ</option>
-            </select>
+            <input list="cause" name="cause" required>
+            <datalist id="cause">
+                <option value="อุบัติเหตุ"></option>
+                <option value="อาการป่วย"></option>
+            </datalist>
         </div>
 
         <div class="row">
@@ -47,8 +45,9 @@
         </div>
         <div class="row">
             <label for="end-point">สถานที่ปลายทาง</label>
-            <input type="text" name="end-point" id="end-point" placeholder="กรอกสถานที่ปลายทาง" required>
-        </div>
+            <select id="hospital" required>
+                <option value="" disabled selected>ระบุโรงพยาบาล</option>
+            </select>
         </div>
         <div class="button">
             <button type="submit" class="submit-button">บันทึก</button>
