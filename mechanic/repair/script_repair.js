@@ -12,6 +12,9 @@ function loadRepairs() {
     const repairs = JSON.parse(localStorage.getItem('repairs')) || [];
     const repairTableBody = document.getElementById('repair-table-body');
 
+    // ล้างตารางก่อนที่จะโหลดข้อมูลใหม่
+    repairTableBody.innerHTML = '';
+
     repairs.forEach((repair, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
