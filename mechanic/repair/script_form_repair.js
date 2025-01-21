@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelButton = document.getElementById('cancel-button');
     const levelField = document.getElementById('level');
     const numberField = document.getElementById('number');
+    const otherCauseRow = document.getElementById('other-cause-row');
+    const otherCauseField = document.getElementById('note');
 
     const getCurrentDate = () => {
         const today = new Date();
@@ -21,10 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     reasonField.addEventListener('change', () => {
         if (reasonField.value === 'other') {
-            noteField.disabled = false;
+            otherCauseRow.style.display = 'block';
+            otherCauseField.required = true; // ทำให้ฟิลด์ข้อความเป็น required
         } else {
-            noteField.disabled = true;
-            noteField.value = '';
+            otherCauseRow.style.display = 'none';
+            otherCauseField.required = false; // ทำให้ฟิลด์ข้อความไม่เป็น required
+            otherCauseField.value = ''; // ล้างค่าฟิลด์ข้อความ
         }
     });
 
@@ -96,7 +100,7 @@ document.querySelector('.save-button').addEventListener('click', function(event)
     event.preventDefault(); // ป้องกันการ submit form
 
     const date = document.getElementById('currentDate').value;
-    const license = document.getElementById('license').value;
+    const license = document.getElementById('number').value;
     const category = document.getElementById('category').value;
     const device = document.getElementById('device').value;
     let reason = document.getElementById('reason').value;

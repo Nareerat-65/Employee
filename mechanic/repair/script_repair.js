@@ -1,4 +1,40 @@
-// ฟังก์ชันกรองข้อมูลในตาราง
+document.addEventListener('DOMContentLoaded', () => {
+    loadRepairs();
+
+    const filterDate = document.getElementById("filter-date");
+    const filterStatus = document.getElementById("filter-status");
+
+    filterDate.addEventListener('input', filterTable);
+    filterStatus.addEventListener('change', filterTable);
+});
+
+function loadRepairs() {
+    const repairs = JSON.parse(localStorage.getItem('repairs')) || [];
+    const repairTableBody = document.getElementById('repair-table-body');
+
+    repairs.forEach((repair, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${repair.date}</td>
+            <td>${repair.license}</td>
+            <td>${repair.category}</td>
+            <td>${repair.device}</td>
+            <td>${repair.reason}</td>
+            <td><input type="date" value="${repair.dueDate || ''}"></td>
+            <td>${repair.driver}</td>
+            <td>
+                <select>
+                    <option ${repair.status === 'รออะไหล่' ? 'selected' : ''}>รออะไหล่</option>
+                    <option ${repair.status === 'กำลังซ่อม' ? 'selected' : ''}>กำลังซ่อม</option>
+                    <option ${repair.status === 'พร้อมใช้งาน' ? 'selected' : ''}>พร้อมใช้งาน</option>
+                </select>
+            </td>
+            <td><button onclick="deleteRepair(${index})">ลบ</button></td>
+        `;
+        repairTableBody.appendChild(row);
+    });
+}
+
 function filterTable() {
     const filterDate = document.getElementById("filter-date").value;
     const filterStatus = document.getElementById("filter-status").value;
@@ -16,8 +52,16 @@ function filterTable() {
         row.style.display = matchDate && matchStatus ? "" : "none";
     });
 }
+
 function addRepair() {
     window.location.href = 'from_repair.html';
+}
+
+function deleteRepair(index) {
+    let repairs = JSON.parse(localStorage.getItem('repairs')) || [];
+    repairs.splice(index, 1);
+    localStorage.setItem('repairs', JSON.stringify(repairs));
+    loadRepairs(); // Reload the table
 }
 
 // ฟังก์ชันบันทึกข้อมูล
