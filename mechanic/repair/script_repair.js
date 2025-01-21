@@ -16,6 +16,9 @@ function filterTable() {
         row.style.display = matchDate && matchStatus ? "" : "none";
     });
 }
+function addRepair() {
+    window.location.href = 'from_repair.html';
+}
 
 // ฟังก์ชันบันทึกข้อมูล
 function saveRepair() {

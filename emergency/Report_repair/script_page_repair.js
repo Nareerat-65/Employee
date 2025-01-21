@@ -17,6 +17,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function addRepair() {
-    window.location.href = 'from_repair.html';
-}

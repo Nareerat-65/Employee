@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryField = document.getElementById('category');
     const deviceField = document.getElementById('device');
     const cancelButton = document.getElementById('cancel-button');
+    const levelField = document.getElementById('level');
+    const numberField = document.getElementById('number');
 
     const getCurrentDate = () => {
         const today = new Date();
@@ -24,6 +26,29 @@ document.addEventListener('DOMContentLoaded', () => {
             noteField.disabled = true;
             noteField.value = '';
         }
+    });
+
+    levelField.addEventListener('change', () => {
+        const level = levelField.value;
+        let numberOptions = '';
+
+        if (level === 'ระดับ 1') {
+            numberOptions = `
+                <option value="กข1234">กข1234</option>
+                <option value="คต5678">คต5678</option>
+            `;
+        } else if (level === 'ระดับ 2') {
+            numberOptions = `
+                <option value="งง9101">งง9101</option>
+                <option value="จช1213">จช1213</option>
+            `;    
+        } else if (level === 'ระดับ 3') {
+            numberOptions = `
+                <option value="ฉน1415">ฉน1415</option>
+                <option value="ชบ1617">ชบ1617</option>
+            `;
+        }
+        numberField.innerHTML = `<option value="" disabled selected>ระบุทะเบียนรถ</option>${numberOptions}`;
     });
 
     categoryField.addEventListener('change', () => {
@@ -63,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     cancelButton.addEventListener('click', () => {
-        window.location.href = 'page_ repair.html';
+        window.location.href = 'repair.html';
     });
 });
 
@@ -100,5 +125,5 @@ document.querySelector('.save-button').addEventListener('click', function(event)
     repairs.push(repairData);
     localStorage.setItem('repairs', JSON.stringify(repairs));
 
-    window.location.href = 'page_ repair.html';
+    window.location.href = 'repair.html';
 });

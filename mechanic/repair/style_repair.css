@@ -73,12 +73,15 @@ table th {
 
 .filter-section {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    
+}
+
+.filter-section > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .filter-section label {
@@ -94,4 +97,23 @@ table th {
     padding: 5px 10px;
     font-size: 14px;
 }
+.add-button {
+    display: flex;
+    justify-content: right;
+}
+
+.add-button button {
+    background-color: #002060;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-button button:hover {
+    background-color: #00509e;
+}
+
 

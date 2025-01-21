@@ -32,11 +32,16 @@
 
         <div class="row">
             <label for="cause">สาเหตุ/อาการป่วย</label>
-            <input list="cause" name="cause" required>
-            <datalist id="cause">
-                <option value="อุบัติเหตุ"></option>
-                <option value="อาการป่วย"></option>
-            </datalist>
+            <select id="cause">
+                <option value="" disabled selected>ระบุสาเหตุ</option>
+                <option value="อุบัติเหตุ">อุบัติเหตุ</option>
+                <option value="อาการป่วย">อาการป่วย</option>
+                <option value="other">อื่นๆ</option>
+            </select>
+        </div>
+        <div class="row" id="other-cause-row" style="display: none;">
+            <label for="other-cause">ระบุรายละเอียด</label>
+            <input type="text" name="other-cause" id="other-cause">
         </div>
 
         <div class="row">
@@ -51,7 +56,6 @@
         </div>
         <div class="button">
             <button type="submit" class="submit-button">บันทึก</button>
-
             <button type="button" class="cancel-button">ยกเลิก</button>
         </div>
     </form>

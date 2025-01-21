@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loadHospitals();
     const form = document.querySelector('.box');
     const cancelButton = document.querySelector('.cancel-button');
+    const reasonField = document.getElementById('cause');
+    const otherCauseRow = document.getElementById('other-cause-row');
+    const otherCauseField = document.getElementById('other-cause');
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -10,6 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cancelButton.addEventListener('click', () => {
         form.reset(); // รีเซ็ตหน้าฟอร์ม
+    });
+
+    reasonField.addEventListener('change', () => {
+        if (reasonField.value === 'other') {
+            otherCauseRow.style.display = 'block';
+            otherCauseField.required = true; // ทำให้ฟิลด์ข้อความเป็น required
+        } else {
+            otherCauseRow.style.display = 'none';
+            otherCauseField.required = false; // ทำให้ฟิลด์ข้อความไม่เป็น required
+            otherCauseField.value = ''; // ล้างค่าฟิลด์ข้อความ
+        }
     });
     
 });
